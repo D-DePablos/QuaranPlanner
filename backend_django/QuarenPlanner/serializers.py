@@ -9,7 +9,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         model = User
         write_only_fields = ('password',)
         read_only_fields = ('id',)
-        fields = ['url', 'username', 'email']
+        fields = ['id', 'username', 'email', 'password']
 
     def create(self, validated_data):
         user = super(UserSerializer, self).create(validated_data)
