@@ -1,6 +1,6 @@
 """ Convert an object into json, xml, others """
 from django.contrib.auth.models import User
-from QuarenPlanner.models import Event
+from .models import Event
 from rest_framework import serializers
 
 
@@ -17,8 +17,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         user.email = validated_data['email']
         user.save()
         return user
-
-
 
 
 class EventSerializer(serializers.HyperlinkedModelSerializer):

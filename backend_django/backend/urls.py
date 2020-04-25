@@ -24,8 +24,9 @@ router.register(r'events', views.EventViewSet)
 
 # Use automatic URL routing
 urlpatterns = [
-    path('', include(router.urls)),
+    path('', views.index, name='index'),
+    path('login/', views.authenticator, name='login'),
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

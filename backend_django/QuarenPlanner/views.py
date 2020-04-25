@@ -1,13 +1,13 @@
 # Create your views here.
-from django.contrib.auth.models import Group
+from django.contrib.auth import authenticate
 from rest_framework import permissions, generics, viewsets
-from QuarenPlanner.serializers import UserSerializer, EventSerializer
-from QuarenPlanner.models import Event
+from .serializers import UserSerializer, EventSerializer
+from .models import Event
 from django.contrib.auth.models import User
 from rest_framework.filters import SearchFilter
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework.reverse import reverse
+from django.http import HttpResponse
+from django.views.decorators.http import require_http_methods
+from django.shortcuts import get_object_or_404, render
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -19,7 +19,7 @@ class UserViewSet(viewsets.ModelViewSet):
     # permission_classes = (AllowAny,)
 
     filter_backends = (SearchFilter,)
-    search_fields =('username', )
+    search_fields = ('username', )
 
 
 class EventViewSet(viewsets.ModelViewSet):
@@ -35,4 +35,22 @@ class EventViewSet(viewsets.ModelViewSet):
     filter_backends = (SearchFilter,)
     search_fields =('name', 'description', 'platform')
 
-# class LoginView()
+@require_http_methods(["GET"])
+def index(request):
+    return HttpResponse("Hello, world. You are at index through a GET request. "
+                        "Please use localhost:PORT/api/ to your content")
+
+@require_http_methods(["POST"])
+def upvote(request, id):
+    # Change the upvote value of the item
+    pass
+
+@require_http_methods(["POST"])
+def authenticator(request, username, password):
+    print('Authenticating...')
+    user = authenticate(username=username, password=password)
+
+    if user is not None:
+        return HttpResponse("Successful authentication")
+    else:
+        raise ConnectionRefusedError("This username / password combination does not exist")
