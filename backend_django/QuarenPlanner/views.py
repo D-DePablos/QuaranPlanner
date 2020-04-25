@@ -9,8 +9,7 @@ from django.http import HttpResponse, JsonResponse
 from django.middleware.csrf import get_token
 from django.views.decorators.http import require_http_methods
 from django.shortcuts import get_object_or_404, render
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_exempt
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -55,9 +54,11 @@ def upvote(request, id):
     # Change the upvote value of the item
     pass
 
-@method_decorator(csrf_exempt, name='dispatch')
+@require_http_methods(["POST", "GET"])
 def authenticator(request, username, password):
+
     user = authenticate(username=username, password=password)
+
     if user is not None:
         return HttpResponse(200, "Successful authentication")
     else:
