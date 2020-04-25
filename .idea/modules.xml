@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/QuaranPlanner.iml" filepath="$PROJECT_DIR$/.idea/QuaranPlanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Quaranplanner.iml" filepath="$PROJECT_DIR$/.idea/Quaranplanner.iml" />
     </modules>
   </component>
 </project>
