@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+from django.contrib import admin, auth
 from django.urls import include, path
 from rest_framework import routers
 from QuarenPlanner import views
@@ -25,5 +25,7 @@ router.register(r'events', views.EventViewSet)
 # Use automatic URL routing
 urlpatterns = [
     path('', include(router.urls)),
+    path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
