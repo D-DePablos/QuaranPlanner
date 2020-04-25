@@ -42,11 +42,9 @@ function LoginForm(props) {
             });
     }
     const redirectToHome = () => {
-        props.updateTitle('Home')
         props.history.push('/home');
     }
     const redirectToRegister = () => {
-        props.updateTitle('Register')
         props.history.push('/register');
     }
     return (
@@ -85,8 +83,8 @@ function LoginForm(props) {
                 {state.successMessage}
             </div>
             <div className="textUserForm registerMessage">
-                <span>Don't have an account? </span>
-                <span className="registerText" onClick={() => redirectToRegister()}>Register</span>
+                <p>Don't have an account? </p>
+                <p className="registerText" onClick={() => redirectToRegister()}>Register</p>
             </div>
 
         </div>

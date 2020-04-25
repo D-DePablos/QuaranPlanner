@@ -12,22 +12,23 @@ import {
 } from "react-router-dom";
 
 function App() {
-    const [title, updateTitle] = useState(null);
+    const [isNavbarHidden, updateNavbarHidden] = useState(null);
+    const [title] = useState(null);
     const [errorMessage, updateErrorMessage] = useState(null);
     return (
         <Router>
             <div className="App">
-                <Header title={title}/>
-                <div className="container d-flex align-items-center flex-column">
+                {isNavbarHidden == false ? null : <Header title={title} updateNavbarHidden={updateNavbarHidden}/> }
+                <div className="d-flex">
                     <Switch>
                         <Route path="/" exact={true}>
                             <Home />
                         </Route>
                         <Route path="/register" exact={true}>
-                            <RegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
+                            <RegistrationForm showError={updateErrorMessage} updateNavbarHidden={updateNavbarHidden}/>
                         </Route>
                         <Route path="/login" exact={true}>
-                            <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>
+                            <LoginForm showError={updateErrorMessage}/>
                         </Route>
                         <Route path="/home" exact={true}>
                             <Home />

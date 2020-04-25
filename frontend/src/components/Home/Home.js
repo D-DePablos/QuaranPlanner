@@ -1,9 +1,10 @@
 import React from "react";
+import Sidebar from "./HomeComponents/Sidebar/Sidebar";
 
-function Home(props) {
-    return(
-        <div className="mt-2">
-            Home page content
+function Home() {
+    return (
+        <div className="col-12">
+            <Sidebar/>
         </div>
     )
 }

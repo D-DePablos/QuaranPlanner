@@ -24,14 +24,14 @@ function RegistrationForm(props) {
                 "email":state.email,
                 "password":state.password,
             }
-            axios.post(API_BASE_URL+'register', payload)
+            axios.post(API_BASE_URL+'events', payload)
                 .then(function (response) {
                     if(response.data.code === 200){
                         setState(prevState => ({
                             ...prevState,
                             'successMessage' : 'Registration successful. Redirecting to home page..'
                         }))
-                        //redirectToHome();
+                        redirectToHome();
                         props.showError(null)
                     } else{
                         props.showError("Some error ocurred");
@@ -46,11 +46,9 @@ function RegistrationForm(props) {
 
     }
     const redirectToHome = () => {
-        props.updateTitle('Home')
         props.history.push('/home');
     }
     const redirectToLogin = () => {
-        props.updateTitle('Login')
         props.history.push('/login');
     }
     const handleSubmitClick = (e) => {
@@ -105,8 +103,8 @@ function RegistrationForm(props) {
                 {state.successMessage}
             </div>
             <div className="textUserForm mt-2">
-                <span>Already have an account? </span>
-                <span className="loginText" onClick={() => redirectToLogin()}>Login here</span>
+                <p>Already have an account? </p>
+                <p className="registerText" onClick={() => redirectToLogin()}>Login here</p>
             </div>
 
         </div>

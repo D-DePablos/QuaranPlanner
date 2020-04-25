@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 .idea
+.pyc
+__pycache__/
+.xml
 
 # testing
 /coverage
