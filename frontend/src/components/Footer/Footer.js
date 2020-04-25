@@ -5,6 +5,7 @@ import music from "../Icons/music.jpg";
 import beauty from "../Icons/beauty.jpg";
 import craft from "../Icons/crafts.jpg";
 import quizNight from "../Icons/quiz night.jpg";
+
 function Footer() {
     return (
         <div className="row col-12 footerMenu">
@@ -14,23 +15,17 @@ function Footer() {
                 </div>
                 Books
             </button>
-            <button className="categoryButton techButton">
-                <div className="imageContainer">
-                    <img src={tech} className="iconPicture"/>
-                </div>
-                Technology
-            </button>
             <button className="categoryButton beautyButton">
                 <div className="imageContainer">
                     <img src={beauty} className="iconPicture"/>
                 </div>
                 Beauty
             </button>
-            <button className="categoryButton musicButton">
+            <button className="categoryButton techButton">
                 <div className="imageContainer">
-                    <img src={music} className="iconPicture"/>
+                    <img src={tech} className="iconPicture"/>
                 </div>
-                Music
+                Technology
             </button>
             <button className="categoryButton craftButton">
                 <div className="imageContainer">
@@ -38,11 +33,17 @@ function Footer() {
                 </div>
                 Crafts
             </button>
+            <button className="categoryButton musicButton">
+                <div className="imageContainer">
+                    <img src={music} className="iconPicture"/>
+                </div>
+                Music
+            </button>
             <button className="categoryButton quizNightButton">
                 <div className="imageContainer">
                     <img src={quizNight} className="iconPicture"/>
                 </div>
-                Crafts
+                Quiz Night
             </button>
         </div>
     );

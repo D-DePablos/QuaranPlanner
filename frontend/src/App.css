@@ -17,20 +17,34 @@ button.loginButton {
 }
 
 .button-profile-group {
-    margin-top: .2em;
+    margin-top: 1em;
     float: right;
     position: absolute;
     right: 0px;
 }
 
-button.profileButton {
+img.headerImage {
+    width: 3%;
+}
+
+button.loginButton {
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
-    border: 1px solid #d34845;
+    border: 1px solid #f0c41d;
     background: #fff;
-    color: #d34845;
-    padding: .5em;
+    color: #f0c41d;
+    padding: .5em 2em;
+}
+
+button.registerButton {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid #5d77df;
+    background: #5d77df;
+    color: #fff;
+    padding: .5em 2em;
 }
 
 .userForm {
@@ -62,8 +76,9 @@ button.profileButton {
 }
 
 .sidebar {
+    border-right: 2px solid #ebecec;
     float: left;
-    background-color: #fcd4ce;
+    background-color: #fff8f8;
     color: #000;
     padding-top: 1.1em;
     height: 100vh;
@@ -87,6 +102,10 @@ p.registerText {
 }
 
 p.sidebarTitle {
+    color: #4f5152;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
 }
 
@@ -105,15 +124,27 @@ p.sidebarTitle {
 }
 
 p.event-title {
+    margin-top: 1em;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 20px !important;
-    letter-spacing: 1px;
+    font-size: 18px !important;
+    font-weight: 400;
+}
+
+p.event-category {
+    text-transform: uppercase;
+    color: #f0c41d;
+    text-align: left;
+    font-weight: 500;
+    padding-left: .5em;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .event-category {
+    width: 37%;
     margin-left: auto;
     margin-right: 0;
+    text-align: right;
 }
 
 p.event-icon {
@@ -129,8 +160,12 @@ p.event-icon {
 }
 
 button.categoryButton {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
     width: 16.66%;
     border: 1px solid transparent;
+    font-size: 12px;
 }
 
 .techButton {
@@ -155,4 +190,41 @@ img.iconPicture {
 
 .craftButton {
     background-color: #d34845;
+}
+
+img.eventStatus {
+    width: 45%;
+    border-radius: 50%;
+}
+
+.eventTitleContainer {
+    float: left;
+    width: 60%;
+}
+
+.eventPositionContainer {
+    text-align: right;
+    margin-left: auto;
+    margin-right: 0;
+    width: 15%;
+    padding-bottom: 2em;
+    display: inline-flex;
+}
+
+svg.svg-inline--fa.fa-instagram-square.fa-w-14 {
+    font-size: 30px;
+    color: #5d77df;
+}
+
+.event-details p {
+    margin-left: 1em;
+    font-size: 13px;
+    padding-top: .5em;
+    font-style: italic;
+}
+
+img.event-categoryPicture {
+    width: 20%;
+    border-radius: 50%;
+    margin-left: 1em;
 }

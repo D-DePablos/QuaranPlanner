@@ -7,6 +7,11 @@ function Home() {
         <div className="col-12">
             <Sidebar/>
             <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
         </div>
     )
 }

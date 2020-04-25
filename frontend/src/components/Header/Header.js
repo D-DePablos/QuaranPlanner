@@ -1,6 +1,6 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-
+import header from "../Icons/logotype.png";
 function Header(props) {
     const redirectToRegister = () => {
         props.history.push('/register');
@@ -22,7 +22,7 @@ function Header(props) {
     return (
         <nav className="navbar navbar-dark bg-primary">
             <div className="row col-12">
-                    <span className="h3" onClick={() => redirectToHomePage()}>Quarenplanner<span
+                    <span className="h3" onClick={() => redirectToHomePage()}><img src={header} className="headerImage"/><span
                         className="currentPage"> | {props.title || title}</span></span>
                 <div className="button-profile-group">
                     <button className="profileButton loginButton" onClick={() => redirectToLogin()}>Login</button>

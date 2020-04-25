@@ -4,13 +4,15 @@ import Header from "./components/Header/Header";
 import RegistrationForm from './components/RegistrationForm/RegistrationForm';
 import Home from "./components/Home/Home";
 import LoginForm from "./components/LoginForm/LoginForm";
+import AlertComponent from "./components/AlertComponent/AlertComponent";
+import Footer from "./components/Footer/Footer";
 
 import {
     BrowserRouter as Router,
     Switch,
     Route
 } from "react-router-dom";
-import Footer from "./components/Footer/Footer";
+
 
 function App() {
     const [isNavbarHidden, updateNavbarHidden] = useState(null);
@@ -34,7 +36,11 @@ function App() {
                         <Route path="/home" exact={true}>
                             <Home />
                         </Route>
+                        <Route path="/home" exact={true}>
+                            <Home />
+                        </Route>
                     </Switch>
+                    <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
                 </div>
                 <Footer/>
             </div>

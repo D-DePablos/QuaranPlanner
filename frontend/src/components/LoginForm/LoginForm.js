@@ -5,7 +5,7 @@ import {withRouter} from "react-router-dom";
 
 function LoginForm(props) {
     const [state, setState] = useState({
-        email: "",
+        username: "",
         password: "",
         successMessage: null
     })
@@ -19,10 +19,10 @@ function LoginForm(props) {
     const handleSubmitClick = (e) => {
         e.preventDefault();
         const payload = {
-            "email": state.email,
+            "username": state.username,
             "password": state.password,
         }
-        axios.get(API_BASE_URL + 'events/')
+        axios.get(API_BASE_URL + 'users/', payload)
             .then(function (response) {
                 if (response.data.code === 302) {
                     setState(prevState => ({
@@ -52,12 +52,12 @@ function LoginForm(props) {
             <span className="h3">Quarenplanner</span>
             <form>
                 <div className="form-group text-left">
-                    <input type="email"
+                    <input type="text"
                            className="form-control"
-                           id="email"
-                           aria-describedby="emailHelp"
-                           placeholder="Enter email"
-                           value={state.email}
+                           id="username"
+                           aria-describedby="usernameHelp"
+                           placeholder="Enter username"
+                           value={state.username}
                            onChange={handleChange}
                     />
                 </div>
