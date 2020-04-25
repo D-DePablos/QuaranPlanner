@@ -1,5 +1,5 @@
 """ Convert an object into json, xml, others """
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import User
 from QuarenPlanner.models import Event
 from rest_framework import serializers
 
@@ -7,16 +7,19 @@ from rest_framework import serializers
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups']
+        write_only_fields = ('password',)
+        read_only_fields = ('id',)
+        fields = ['url', 'username', 'email']
+
+    def create(self, validated_data):
+        user = super(UserSerializer, self).create(validated_data)
+        user.set_password(validated_data['password'])
+        user.email = validated_data['email']
+        user.save()
+        return user
 
 
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Group
-        fields = ['url', 'name']
-
-
-class EventSerializer(serializers.ModelSerializer):
+class EventSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Event
         fields = ['id', 'name', 'description', 'likes', 'url',
