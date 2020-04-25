@@ -56,9 +56,7 @@ def upvote(request, id):
 
 @require_http_methods(["POST", "GET"])
 def authenticator(request, username, password):
-    return HttpResponse('reee')
-    print('Authenticating...')
-    # user = authenticate(username=username, password=password)
+    user = authenticate(username=username, password=password)
 
     if user is not None:
         return HttpResponse("Successful authentication")
