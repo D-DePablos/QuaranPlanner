@@ -27,6 +27,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('login/', views.authenticator, name='login'),
     path('api/', include(router.urls)),
+    path('csrf/', views.csrf),
+    path('ping/', views.ping),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

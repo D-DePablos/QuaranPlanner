@@ -79,6 +79,8 @@ CORS_ORIGIN_REGEX_WHITELIST = [
     'http://localhost:3000',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['localhost:3000']
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

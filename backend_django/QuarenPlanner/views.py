@@ -5,7 +5,8 @@ from .serializers import UserSerializer, EventSerializer
 from .models import Event
 from django.contrib.auth.models import User
 from rest_framework.filters import SearchFilter
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.middleware.csrf import get_token
 from django.views.decorators.http import require_http_methods
 from django.shortcuts import get_object_or_404, render
 
@@ -35,6 +36,14 @@ class EventViewSet(viewsets.ModelViewSet):
     filter_backends = (SearchFilter,)
     search_fields =('name', 'description', 'platform')
 
+
+def csrf(request):
+    return JsonResponse({'csrfToken': get_token(request)})
+
+def ping(request):
+    return JsonResponse({'result': 'OK'})
+
+
 @require_http_methods(["GET"])
 def index(request):
     return HttpResponse("Hello, world. You are at index through a GET request. "
@@ -45,10 +54,11 @@ def upvote(request, id):
     # Change the upvote value of the item
     pass
 
-@require_http_methods(["POST"])
+@require_http_methods(["POST", "GET"])
 def authenticator(request, username, password):
+    return HttpResponse('reee')
     print('Authenticating...')
-    user = authenticate(username=username, password=password)
+    # user = authenticate(username=username, password=password)
 
     if user is not None:
         return HttpResponse("Successful authentication")
