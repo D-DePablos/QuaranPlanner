@@ -26,6 +26,5 @@ router.register(r'events',views.EventViewSet)
 # Use automatic URL routing
 urlpatterns = [
     path('', include(router.urls)),
-    path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
