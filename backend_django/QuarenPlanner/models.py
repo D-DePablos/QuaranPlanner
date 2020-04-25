@@ -2,7 +2,7 @@
 from django.utils import timezone
 from django.db import models
 from datetime import timedelta
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 
 class Event(models.Model):
@@ -11,6 +11,7 @@ class Event(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     likes = models.IntegerField(default=0)
+    dislikes = models.IntegerField(default=0)
     url = models.TextField()
     platform = models.TextField()  # Instagram, Youtube, ...
     host = models.TextField()  # Company or individual (if required)
