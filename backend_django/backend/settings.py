@@ -26,6 +26,7 @@ SECRET_KEY = '&#1q41+0^drn+&=#9nh$znl#9iwvi_1hvx2kljb$2*z5=cbwo4'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Added from Pagination tutorial
 # REST_FRAMEWORK = {
