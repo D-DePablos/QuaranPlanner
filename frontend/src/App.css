@@ -1,6 +1,6 @@
 .bg-primary {
     background-color: #fff !important;
-    color: #F29966;
+    color: #5d77df;
 }
 
 body {
@@ -27,9 +27,9 @@ button.profileButton {
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
-    border: 1px solid #F29966;
+    border: 1px solid #d34845;
     background: #fff;
-    color: #F29966;
+    color: #d34845;
     padding: .5em;
 }
 
@@ -47,7 +47,7 @@ button.profileButton {
 .userForm .h3 {
     text-align: center;
     padding: 2em;
-    color: #F29966;
+    color: #5d77df;
 }
 
 
@@ -55,7 +55,7 @@ button.profileButton {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     width: 100%;
-    background-color: #F29966;
+    background-color: #5d77df;
     font-size: 1rem;
     margin-bottom: 1em;
     border: 1px solid transparent;
@@ -63,8 +63,8 @@ button.profileButton {
 
 .sidebar {
     float: left;
-    background-color: #F29966;
-    color: #fff;
+    background-color: #fcd4ce;
+    color: #000;
     padding-top: 1.1em;
     height: 100vh;
 }
@@ -76,13 +76,13 @@ button.profileButton {
 }
 
 .btnUserForm:hover {
-    color: #F29966;
-    border: 1px solid #F29966;
+    color: #5d77df;
+    border: 1px solid #5d77df;
     background-color: #fff;
 }
 
 p.registerText {
-    color: #F29966;
+    color: #5d77df;
     font-weight: 600;
 }
 
@@ -121,7 +121,38 @@ p.event-icon {
 }
 
 .footerMenu {
+    margin: 0;
     position: fixed;
     bottom: 0;
     width: 100%;
+    background-color: #5d76df;
+}
+
+button.categoryButton {
+    width: 16.66%;
+    border: 1px solid transparent;
+}
+
+.techButton {
+    background: #f0c41d;
+}
+
+button:focus {
+    outline: 0;
+}
+
+img.iconPicture {
+    width: 25%;
+}
+
+.bookButton, .quizNightButton {
+    background-color: #5d77df;
+}
+
+.musicButton, .beautyButton {
+    background-color: #fcd4ce;
+}
+
+.craftButton {
+    background-color: #d34845;
 }
