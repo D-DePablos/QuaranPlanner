@@ -20,11 +20,12 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = ['id', 'name', 'description', 'likes', 'url',
-                  'platform', 'host', 'event_start', 'event_end', 'photo']
+                  'platform', 'host', 'event_start', 'event_end', 'photo', 'pub_date']
 
     def to_representation(self, instance):
         # Serialize the fields and add extra customized fields to representation
         data = super().to_representation(instance)
         data['is_on'] = instance.is_on()
         data['platform'] = instance.platform
+
         return data

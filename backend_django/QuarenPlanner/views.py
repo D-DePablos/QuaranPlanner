@@ -1,7 +1,6 @@
 # Create your views here.
 from django.contrib.auth.models import Group
-from rest_framework import viewsets
-from rest_framework import permissions
+from rest_framework import permissions, generics, viewsets
 from QuarenPlanner.serializers import UserSerializer, GroupSerializer, EventSerializer
 from QuarenPlanner.models import Event
 from django.contrib.auth.models import User
@@ -27,11 +26,11 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 class EventViewSet(viewsets.ModelViewSet):
     """
-    API endpoint for Events to be viewed or edited
+    API endpoint for Events to be viewed or edited.
+    TODO: Currently has no authentication!
     """
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-    permission_classes = [permissions.AllowAny]
-
+    # permission_classes = [permissions.AllowAny]
 
 

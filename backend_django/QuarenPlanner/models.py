@@ -1,6 +1,7 @@
 # Create your models here.
 from django.utils import timezone
 from django.db import models
+from datetime import timedelta
 # from django.contrib.auth.models import User
 
 
@@ -19,6 +20,8 @@ class Event(models.Model):
 
     photo = models.ImageField(blank=True, null=True, default=None, upload_to='event_pictures')
 
+    pub_date = models.DateTimeField(default=timezone.now())
+
     def is_on(self):
         now = timezone.now()
         if self.event_start:
@@ -27,5 +30,12 @@ class Event(models.Model):
             return self.event_start <= now
         return False
 
+    def was_published_recently(self):
+        return self.pub_date >= timezone.now() - timedelta(days=1)
+
+    def __str__(self):
+        return self.name
+
     def __repr__(self):
         return f'<Event object ({self.id}) "{self.name}">'
+
