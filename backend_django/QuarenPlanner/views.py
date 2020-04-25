@@ -56,9 +56,10 @@ def upvote(request, id):
 
 @require_http_methods(["POST", "GET"])
 def authenticator(request, username, password):
+
     user = authenticate(username=username, password=password)
 
     if user is not None:
-        return HttpResponse("Successful authentication")
+        return HttpResponse(200, "Successful authentication")
     else:
-        raise ConnectionRefusedError("This username / password combination does not exist")
+        return  HttpResponse(400, "Forbidden. Bad username / password")
