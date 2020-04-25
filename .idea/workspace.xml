@@ -10,11 +10,6 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
     <select>
       <path>
@@ -25,7 +20,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="235c401a-7034-4231-97c5-9044851d37c4" name="Default Changelist" comment="CORS allow all - plugin settings.py" />
+    <list default="true" id="235c401a-7034-4231-97c5-9044851d37c4" name="Default Changelist" comment="CORS allow all - plugin settings.py">
+      <change afterPath="$PROJECT_DIR$/backend_django/QuarenPlanner/accounts/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Quaranplanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Quaranplanner.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_django/QuarenPlanner/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_django/QuarenPlanner/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_django/QuarenPlanner/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_django/QuarenPlanner/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_django/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_django/backend/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_django/backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_django/backend/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_django/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend_django/db.sqlite3" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +69,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="learning_databases" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -286,10 +291,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="235" height="541" key="HiddenNamespacesPopup/0.0.1920.1044/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587809105674" />
-    <state x="0" y="0" width="1920" height="1044" key="SettingsEditor" timestamp="1587750996878">
+    <state x="0" y="0" width="1920" height="1044" key="SettingsEditor" timestamp="1587819491684">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="0" y="0" width="1920" height="1044" key="SettingsEditor/0.0.1920.1044/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587750996878" />
+    <state x="0" y="0" width="1920" height="1044" key="SettingsEditor/0.0.1920.1044/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587819491684" />
     <state x="2476" y="254" key="Vcs.Push.Dialog.v2" timestamp="1587814272794">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -298,6 +303,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2537" y="205" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1044/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587811572290" />
+    <state x="2673" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587819227592">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2673" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1044/1920.0.1920.1080@1920.0.1920.1080" timestamp="1587819227592" />
     <state x="2585" y="109" width="590" height="825" key="find.popup" timestamp="1587808098823">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
