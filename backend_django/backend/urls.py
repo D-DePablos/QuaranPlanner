@@ -20,7 +20,7 @@ from QuarenPlanner import views
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
-router.register(r'events',views.EventViewSet)
+router.register(r'events', views.EventViewSet)
 
 # Use automatic URL routing
 urlpatterns = [

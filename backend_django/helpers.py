@@ -41,3 +41,8 @@ def create_superuser():
     user.is_staff = True
     user.save()
 
+# {
+# 	"username": "patatitomanager",
+# 	"password": "geniousKID",
+# 	"email": "Iamtheeggman@gmail.com"
+# }
