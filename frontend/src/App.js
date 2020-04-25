@@ -10,6 +10,7 @@ import {
     Switch,
     Route
 } from "react-router-dom";
+import Footer from "./components/Footer/Footer";
 
 function App() {
     const [isNavbarHidden, updateNavbarHidden] = useState(null);
@@ -35,6 +36,7 @@ function App() {
                         </Route>
                     </Switch>
                 </div>
+                <Footer/>
             </div>
         </Router>
     );
