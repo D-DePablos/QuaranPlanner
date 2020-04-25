@@ -10,6 +10,7 @@ class Event(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200)
     description = models.TextField()
+    likes = models.IntegerField(default=0)
     url = models.TextField()
     platform = models.TextField()  # Instagram, Youtube, ...
     host = models.TextField()  # Company or individual (if required)

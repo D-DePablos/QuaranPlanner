@@ -19,7 +19,7 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ['id', 'name', 'description', 'url',
+        fields = ['id', 'name', 'description', 'likes', 'url',
                   'platform', 'host', 'event_start', 'event_end', 'photo']
 
     def to_representation(self, instance):
