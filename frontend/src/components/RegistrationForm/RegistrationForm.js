@@ -31,7 +31,7 @@ function RegistrationForm(props) {
                             ...prevState,
                             'successMessage' : 'Registration successful. Redirecting to home page..'
                         }))
-                        redirectToHome();
+                        //redirectToHome();
                         props.showError(null)
                     } else{
                         props.showError("Some error ocurred");
@@ -66,7 +66,6 @@ function RegistrationForm(props) {
             <span className="h3">Quarenplanner</span>
             <form>
                 <div className="form-group text-left">
-                <label htmlFor="exampleInputEmail1">Email address</label>
                 <input type="email"
                        className="form-control"
                        id="email"
@@ -75,10 +74,8 @@ function RegistrationForm(props) {
                        value={state.email}
                        onChange={handleChange}
                 />
-                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div className="form-group text-left">
-                    <label htmlFor="exampleInputPassword1">Password</label>
                     <input type="password"
                         className="form-control"
                         id="password"
@@ -88,7 +85,6 @@ function RegistrationForm(props) {
                     />
                 </div>
                 <div className="form-group text-left">
-                    <label htmlFor="exampleInputPassword1">Confirm Password</label>
                     <input type="password"
                         className="form-control"
                         id="confirmPassword"
@@ -99,7 +95,7 @@ function RegistrationForm(props) {
                 </div>
                 <button
                     type="submit"
-                    className="btn btn-primary"
+                    className="btn btn-primary btnUserForm"
                     onClick={handleSubmitClick}
                 >
                     Register
@@ -108,7 +104,7 @@ function RegistrationForm(props) {
             <div className="alert alert-success mt-2" style={{display: state.successMessage ? 'block' : 'none' }} role="alert">
                 {state.successMessage}
             </div>
-            <div className="mt-2">
+            <div className="textUserForm mt-2">
                 <span>Already have an account? </span>
                 <span className="loginText" onClick={() => redirectToLogin()}>Login here</span>
             </div>

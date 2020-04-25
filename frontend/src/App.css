@@ -29,14 +29,30 @@ button.profileButton {
 }
 
 .userForm {
-    position: absolute;
-    width: 50%;
-    right: 25%;
-    top: 25%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
 }
 
 .userForm .h3 {
     text-align: center;
     padding: 2em;
     color: #F29966;
+}
+
+
+.btnUserForm {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 100%;
+    background-color: #F29966;
+    font-size: 1rem;
+    margin-bottom: 1em;
+}
+
+.textUserForm {
+    text-align: center;
+    margin-bottom: 3em;
 }

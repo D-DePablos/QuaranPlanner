@@ -54,7 +54,6 @@ function LoginForm(props) {
             <span className="h3">Quarenplanner</span>
             <form>
                 <div className="form-group text-left">
-                    <label htmlFor="exampleInputEmail1">Email address</label>
                     <input type="email"
                            className="form-control"
                            id="email"
@@ -63,11 +62,8 @@ function LoginForm(props) {
                            value={state.email}
                            onChange={handleChange}
                     />
-                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone
-                        else.</small>
                 </div>
                 <div className="form-group text-left">
-                    <label htmlFor="exampleInputPassword1">Password</label>
                     <input type="password"
                            className="form-control"
                            id="password"
@@ -78,7 +74,7 @@ function LoginForm(props) {
                 </div>
                 <button
                     type="submit"
-                    className="btn btn-primary"
+                    className="btn btn-primary btnUserForm"
                     onClick={handleSubmitClick}
                 >
                     Submit
@@ -88,9 +84,9 @@ function LoginForm(props) {
                  role="alert">
                 {state.successMessage}
             </div>
-            <div className="registerMessage">
+            <div className="textUserForm registerMessage">
                 <span>Don't have an account? </span>
-                <span className="loginText" onClick={() => redirectToRegister()}>Register</span>
+                <span className="registerText" onClick={() => redirectToRegister()}>Register</span>
             </div>
 
         </div>
