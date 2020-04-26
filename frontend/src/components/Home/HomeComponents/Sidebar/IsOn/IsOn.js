@@ -27,16 +27,30 @@ class IsOn extends Component {
 
     render() {
         return (
-            <div className="miniCards">
-                {this.state.events.map(event => (
-                    <MiniCards title={event.name} platform={event.platform} startDate={event.event_start}
-                          endDate={event.event_end} category={event.category} url={event.url}/>
-                ))}
+            <div>
+                <AreEvents events={this.state.events} category={this.props.setEvent}/>
+
             </div>
         )
     }
 
 
+}
+
+function AreEvents(props) {
+    if (props.events.length > 0) {
+        return (
+            <div className="miniCards">{props.events.map(event => (
+                    <MiniCards title={event.name} platform={event.platform} startDate={event.event_start}
+                          endDate={event.event_end} category={event.category} url={event.url}/>
+            ))}</div>
+        )
+    }
+    else {
+        return (
+            <div className="card-event isOn noEvents">No ongoing events in {props.category}</div>
+        )
+    }
 }
 
 export default IsOn;

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {API_BASE_URL} from '../../constants/apiConstants';
 import Card from "../Card/Card";
+import MiniCards from "../Home/HomeComponents/Sidebar/IsOn/MiniCards/MiniCards";
 
 class Events extends Component {
 
@@ -37,6 +38,22 @@ class Events extends Component {
     }
 
 
+}
+
+function AreEvents(props) {
+    if (props.events.length > 0) {
+        return (
+            <div className="cards">{props.events.map(event => (
+                    <MiniCards title={event.name} platform={event.platform} startDate={event.event_start}
+                          endDate={event.event_end} category={event.category} url={event.url}/>
+            ))}</div>
+        )
+    }
+    else {
+        return (
+            <div className="card-event isOn noEvents">No ongoing events in {props.category}</div>
+        )
+    }
 }
 
 export default Events;

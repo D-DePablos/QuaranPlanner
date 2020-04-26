@@ -295,3 +295,14 @@ svg.svg-inline--fa.fa-youtube-square.fa-w-14 {
 .row.col-12.card-event.isOn {
     padding: .5em 1.5em;
 }
+
+.row.col-12.card-event.isOn.noEvents {
+    margin-top: 5em;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.card-event.isOn.noEvents {
+    margin-top: -29em;
+}
