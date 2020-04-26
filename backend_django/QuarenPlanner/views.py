@@ -20,8 +20,7 @@ class UserViewSet(viewsets.ModelViewSet):
     # permission_classes = (AllowAny,)
 
     filter_backends = (SearchFilter,)
-    search_fields = ('username', )
-
+    search_fields = ('username')
 
 class EventViewSet(viewsets.ModelViewSet):
     """
@@ -34,7 +33,25 @@ class EventViewSet(viewsets.ModelViewSet):
 
     # Searching functionality
     filter_backends = (SearchFilter,)
-    search_fields =('category', )
+    search_fields =('category',)
+
+    def get_queryset(self):
+        """
+        Define new queryset that makes use of is_on to detect ongoing events
+        """
+        on_sale = self.request.query_params.get('is_on', None)
+
+        if on_sale is None:
+            return super().get_queryset()
+        queryset = Event.objects.all()
+        if on_sale.lower() == 'true':
+            from django.utils import timezone
+            now = timezone.now()
+            return queryset.filter(
+                event_start__lte=now,
+                event_end__gte=now,
+            )
+        return queryset
 
 
 def csrf(request):
