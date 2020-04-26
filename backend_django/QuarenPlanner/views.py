@@ -1,4 +1,5 @@
 # Create your views here.
+from django.contrib.auth import authenticate
 from rest_framework import permissions, generics, viewsets
 from .serializers import UserSerializer, EventSerializer
 from .models import Event
@@ -31,8 +32,7 @@ class EventViewSet(viewsets.ModelViewSet):
 
     # Searching functionality
     filter_backends = (SearchFilter,)
-    search_fields =('category','is_on', 'is_hot')
-    pagination_class = PageNumberPagination
+    search_fields =('category',)
 
     def get_queryset(self):
         """
@@ -42,7 +42,6 @@ class EventViewSet(viewsets.ModelViewSet):
 
         if on_sale is None:
             return super().get_queryset()
-
         queryset = Event.objects.all()
         if on_sale.lower() == 'true':
             from django.utils import timezone

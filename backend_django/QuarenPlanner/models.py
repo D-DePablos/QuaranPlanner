@@ -2,7 +2,7 @@
 from django.utils import timezone
 from django.db import models
 from datetime import timedelta
-
+from django.contrib.auth.models import AbstractUser
 
 class Event(models.Model):
     # Any constants I want to use

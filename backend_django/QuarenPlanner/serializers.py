@@ -29,5 +29,5 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
         # Serialize the fields and add extra customized fields to representation
         data = super().to_representation(instance)
         data['is_on'] = instance.is_on()
-
+        data['platform'] = instance.platform
         return data
