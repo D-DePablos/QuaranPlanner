@@ -50,7 +50,7 @@ def index(request):
     return HttpResponse("Hello, world. You are at index through a GET request. "
                         "Please use localhost:PORT/api/ to your content")
 
-@require_http_methods(["GET", "POST"])
+@require_http_methods(["POST"])
 def upvote(request, id=None):
     # Change the upvote value of the item
 
@@ -86,14 +86,41 @@ def upvote(request, id=None):
         event.save()
 
         return HttpResponse("Added your upvote", context)
-# # @require_http_methods(["POST", "GET"])
-# # def authenticator(request, username, password):
-# #
-# #     user = authenticate(username=username, password=password)
-# #
-# #     if user is not None:
-# #         return HttpResponse("Successful authentication")
-# #     else:
-# #         return HttpResponse("Forbidden. Bad username / password")
-# #
 
+
+#@require_http_methods(["POST"])
+def downvote(request, id=None):
+    # Change the upvote value of the item
+
+    import re
+    print(f' Found ID {str(request.body)}')
+    try:
+        found_id = int(re.findall(r'\d+', str(request.body))[0])
+
+    except IndexError:
+        raise IndexError(f"Your body {str(request.body)} does not contain a number")
+
+    print(f'Using index {found_id}')
+
+    if found_id:
+        id = found_id
+    else:
+        return HttpResponse(f"Not found event ID on body: {str(request.body)}")
+        raise Exception("Event not found in body")
+
+    print(id)
+    if not id:
+        return HttpResponse(f"Event id does not exist")
+
+        raise Exception("Need id header in body of GET request")
+
+    else:
+        event = Event.objects.get(id=id)
+        context = {
+            'event': event,
+            'like_amount': Event.dislikes
+        }
+        event.dislikes = event.likes + 1
+        event.save()
+
+        return HttpResponse("Added your downvote", context)
