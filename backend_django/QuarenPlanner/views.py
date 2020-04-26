@@ -111,16 +111,15 @@ def downvote(request, id=None):
     print(id)
     if not id:
         return HttpResponse(f"Event id does not exist")
-
         raise Exception("Need id header in body of GET request")
 
     else:
         event = Event.objects.get(id=id)
         context = {
             'event': event,
-            'like_amount': Event.dislikes
+            'dislike_amount': Event.dislikes
         }
-        event.dislikes = event.likes + 1
+        event.dislikes = event.dislikes + 1
         event.save()
 
         return HttpResponse("Added your downvote", context)
