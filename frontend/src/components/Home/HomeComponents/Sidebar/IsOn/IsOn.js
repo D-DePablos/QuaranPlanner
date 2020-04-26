@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {API_BASE_URL} from '../../constants/apiConstants';
-import Card from "../Card/Card";
+import {API_BASE_URL} from '../../../../../constants/apiConstants';
+import MiniCards from "./MiniCards/MiniCards";
 
-class Events extends Component {
+
+class IsOn extends Component {
 
     constructor() {
         super();
@@ -12,12 +13,12 @@ class Events extends Component {
 
     componentDidMount() {
         if (this.props.setEvent == "all") {
-            axios.get(API_BASE_URL + 'api/events/')
+            axios.get(API_BASE_URL + 'api/events/?is_on=true')
                 .then((result) => {
                     this.setState({events: result.data});
                 });
         } else {
-            axios.get(API_BASE_URL + 'api/events/?search=' + this.props.setEvent)
+            axios.get(API_BASE_URL + 'api/events/?is_on=true&search=' + this.props.setEvent)
                 .then((result) => {
                     this.setState({events: result.data});
                 });
@@ -26,10 +27,9 @@ class Events extends Component {
 
     render() {
         return (
-            <div className="cards">
+            <div className="miniCards">
                 {this.state.events.map(event => (
-                    <Card id={event.id} title={event.name} likes={event.likes} dislikes={event.dislikes}
-                          description={event.description} platform={event.platform} startDate={event.event_start}
+                    <MiniCards title={event.name} platform={event.platform} startDate={event.event_start}
                           endDate={event.event_end} category={event.category} url={event.url}/>
                 ))}
             </div>
@@ -39,4 +39,4 @@ class Events extends Component {
 
 }
 
-export default Events;
+export default IsOn;

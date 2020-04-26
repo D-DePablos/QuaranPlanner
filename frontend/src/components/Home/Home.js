@@ -10,7 +10,7 @@ function Home(props) {
         <div>
             <Header isShow={props.isShow}/>
             <div className="col-12">
-                <Sidebar/>
+                <Sidebar setEvent={props.setEvent}/>
                 <Events setEvent={props.setEvent}/>
             </div>
             <Footer/>

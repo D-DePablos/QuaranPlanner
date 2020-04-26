@@ -41,22 +41,22 @@ class App extends Component {
                                 <Home isShow={false} setEvent={'all'}/>
                             </Route>
                             <Route path="/culture" exact={true}>
-                                <Home isShow={false} setEvent={'CU'}/>
+                                <Home isShow={false} setEvent={'culture'}/>
                             </Route>
                             <Route path="/beauty" exact={true}>
-                                <Home isShow={false} setEvent={'BY'}/>
+                                <Home isShow={false} setEvent={'beauty'}/>
                             </Route>
                             <Route path="/technology" exact={true}>
-                                <Home isShow={false} setEvent={'TC'}/>
+                                <Home isShow={false} setEvent={'technology'}/>
                             </Route>
                             <Route path="/crafts" exact={true}>
-                                <Home isShow={false} setEvent={'CR'}/>
+                                <Home isShow={false} setEvent={'crafts'}/>
                             </Route>
                             <Route path="/music" exact={true}>
-                                <Home isShow={false} setEvent={'MU'}/>
+                                <Home isShow={false} setEvent={'music'}/>
                             </Route>
                             <Route path="/quiz-night" exact={true}>
-                                <Home isShow={false} setEvent={'QU'}/>
+                                <Home isShow={false} setEvent={'quiz'}/>
                             </Route>
                             <Route path="/create-event" exact={true}>
                                 <CreateEvent/>

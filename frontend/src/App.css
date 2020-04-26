@@ -57,6 +57,10 @@ button.registerButton {
     padding: .5em 2em;
 }
 
+img.isOn.event-categoryPicture {
+    width: 50%;
+}
+
 .userForm {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding-left: 2em;
@@ -66,6 +70,16 @@ button.registerButton {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 20%;
+}
+
+p.isOn.date .event-start, p.isOn.date .event-end {
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+p.isOn.date {
+    padding: 0;
 }
 
 .userForm .h3 {
@@ -112,7 +126,7 @@ p.registerText {
 }
 
 p.sidebarTitle {
-    color: #4f5152;
+    color: #333333;
     font-size: 18px;
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
@@ -272,4 +286,12 @@ svg.svg-inline--fa.fa-external-link-square-alt.fa-w-14 {
 svg.svg-inline--fa.fa-youtube-square.fa-w-14 {
     font-size: 30px;
     color: #5d77df;
+}
+
+.miniCards {
+    margin-top: -30em;
+}
+
+.row.col-12.card-event.isOn {
+    padding: .5em 1.5em;
 }
