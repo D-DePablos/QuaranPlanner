@@ -6,7 +6,7 @@ function Header(props) {
         props.history.push('/register');
     }
     const redirectToLogin = () => {
-        props.updateNavbarHidden(false);
+        //props.updateNavbarHidden(false);
         props.history.push('/login');
     }
     const redirectToHomePage = () => {
@@ -24,11 +24,11 @@ function Header(props) {
             <div className="row col-12">
                     <span className="h3" onClick={() => redirectToHomePage()}><img src={header} className="headerImage"/><span
                         className="currentPage"> | {props.title || title}</span></span>
-                {props.setLoggedIn ? <div className="button-profile-group">
+               <div className="button-profile-group">
                     <button className="profileButton loginButton" onClick={() => redirectToLogin()}>Login</button>
                     <button className="profileButton registerButton" onClick={() => redirectToRegister()}>Register
                     </button>
-                </div> : null}
+                </div>
             </div>
         </nav>
     )
