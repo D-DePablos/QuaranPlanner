@@ -30,6 +30,13 @@ def create_example_event():
     print(Event.objects.all())
 
 
+def add_event_from_dict(dict):
+    event = Event(**dict)
+    event.save()
+
+    print(f"Added {event}")
+
+
 def create_superuser():
     """
     Creates a superuser with username admin, password admin
@@ -41,8 +48,28 @@ def create_superuser():
     user.is_staff = True
     user.save()
 
-# {
-# 	"username": "patatitomanager",
-# 	"password": "geniousKID",
-# 	"email": "Iamtheeggman@gmail.com"
-# }
+
+def create_all_events(event_dict):
+    """
+    Populates the event database with the list of events
+    """
+    for event_config in event_dict:
+        add_event_from_dict(event_config)
+
+
+event_list = []
+
+example_dictionary = {
+    "id": 5,
+    "name": "EventName",
+    "description": "Event description",
+    "url": "event_url",
+    "platform": "Instagram",
+    "category": "Technology",
+    "host": "Host",
+    "event_start": datetime.datetime(2020,1,1,tzinfo=datetime.timezone.utc),
+    "event_end": datetime.datetime(2020,2,2,tzinfo=datetime.timezone.utc)
+}
+
+for i in range(5):
+    event_list.append(example_dictionary)
