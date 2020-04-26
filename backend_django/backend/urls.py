@@ -32,6 +32,7 @@ urlpatterns = [
     path('csrf/', views.csrf),
     path('admin/', admin.site.urls),
     path('likes/', views.upvote),
+    path('dislikes/', views.downvote),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('cart/', store_views.cart, name ='shopping-cart')
 ]
