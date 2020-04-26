@@ -54,7 +54,7 @@ def index(request):
 def upvote(request, id=None):
     # Change the upvote value of the item
 
-    print(request.body.find(id))
+    print(request.headers)
     if not id:
         raise Exception("Need id header in body of GET request")
     event = Event.objects.get(id=id)

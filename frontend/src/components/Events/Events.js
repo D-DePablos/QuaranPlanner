@@ -16,12 +16,11 @@ function Events(props) {
     const handleSubmitClick = async (e) => {
         e.preventDefault();
         const payload = {
-
+            "id": 0,
         }
-        axios.get(API_BASE_URL + 'api/events/', {
+        axios.get(API_BASE_URL + 'likes/', payload, {
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
+                'id': 0,
             },
         })
             .then(function (response) {
