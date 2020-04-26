@@ -25,7 +25,7 @@ class Event(models.Model):
         (FACEBOOK, 'Facebook'),
         (NA, 'Other')
     ]
-    BOOKS = 'BK'
+    CULTURE = 'CU'
     BEAUTY = 'BY'
     TECHNOLOGY = 'TC'
     CRAFTS = 'CR'
@@ -34,7 +34,7 @@ class Event(models.Model):
     OTHER = 'NA'
 
     CATEGORY_CHOICES = [
-        (BOOKS, 'Books'),
+        (CULTURE, 'Culture'),
         (BEAUTY, 'Beauty'),
         (TECHNOLOGY, 'Technology'),
         (CRAFTS, 'Crafts'),

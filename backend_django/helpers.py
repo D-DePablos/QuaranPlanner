@@ -71,5 +71,4 @@ example_dictionary = {
     "event_end": datetime.datetime(2020,2,2,tzinfo=datetime.timezone.utc)
 }
 
-for i in range(5):
-    event_list.append(example_dictionary)
+
