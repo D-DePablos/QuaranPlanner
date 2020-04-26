@@ -14,24 +14,25 @@ class Event(models.Model):
     dislikes = models.IntegerField(default=0)
     url = models.TextField()
 
-    # Platfrom and Category choices
-    INSTAGRAM = 'IG'
-    YOUTUBE = 'YT'
-    FACEBOOK = 'FB'
-    NA = 'NA'
+    # Platform and Category choices
+    INSTAGRAM = 'Instagram'
+    YOUTUBE = 'Youtube'
+    FACEBOOK = 'Facebook'
+    NA = 'Other'
+
     PLATFORM_CHOICES = [
         (INSTAGRAM, 'Instagram'),
         (YOUTUBE, 'Youtube'),
         (FACEBOOK, 'Facebook'),
         (NA, 'Other')
     ]
-    CULTURE = 'CU'
-    BEAUTY = 'BY'
-    TECHNOLOGY = 'TC'
-    CRAFTS = 'CR'
-    MUSIC = 'MU'
-    QUIZ = 'QU'
-    OTHER = 'NA'
+    CULTURE = 'Culture'
+    BEAUTY = 'Beauty'
+    TECHNOLOGY = 'Technology'
+    CRAFTS = 'Crafts'
+    MUSIC = 'Music'
+    QUIZ = 'Quiz'
+    OTHER = 'Other'
 
     CATEGORY_CHOICES = [
         (CULTURE, 'Culture'),
@@ -44,10 +45,10 @@ class Event(models.Model):
     ]
     platform = models.TextField(choices=PLATFORM_CHOICES, default='Other')  # Instagram, Youtube, ...
     category = models.TextField(choices=CATEGORY_CHOICES, default='Other')
-    host = models.TextField(default=None)  # Company or individual (if required)
+    host = models.TextField(default='No declared Host')  # Company or individual (if required)
 
-    event_start = models.DateTimeField(blank=True, null=True, default=None)
-    event_end = models.DateTimeField(blank=True, null=True, default=None)
+    event_start = models.DateTimeField(blank=True, null=True, default=timezone.now() - timedelta(days=2))
+    event_end = models.DateTimeField(blank=True, null=True, default=timezone.now() + timedelta(days=2))
 
     photo = models.ImageField(blank=True, null=True, default=None, upload_to='event_pictures')
     pub_date = models.DateTimeField(default=timezone.now())
