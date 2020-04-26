@@ -17,18 +17,19 @@ import {
 function App() {
     const [isNavbarHidden, updateNavbarHidden] = useState(null);
     const [title] = useState(null);
+    const [loggedIn, setLoggedIn] = useState(false);
     const [errorMessage, updateErrorMessage] = useState(null);
     return (
         <Router>
             <div className="App">
-                {isNavbarHidden == false ? null : <Header title={title} updateNavbarHidden={updateNavbarHidden}/> }
+                {isNavbarHidden == false ? null : <Header title={title} updateNavbarHidden={updateNavbarHidden} setLoggedIn={setLoggedIn}/> }
                 <div className="d-flex">
                     <Switch>
                         <Route path="/" exact={true}>
                             <Home />
                         </Route>
                         <Route path="/register" exact={true}>
-                            <RegistrationForm showError={updateErrorMessage} updateNavbarHidden={updateNavbarHidden}/>
+                            <RegistrationForm showError={updateErrorMessage} setLoggedIn={setLoggedIn} updateNavbarHidden={updateNavbarHidden}/>
                         </Route>
                         <Route path="/login" exact={true}>
                             <LoginForm showError={updateErrorMessage}/>

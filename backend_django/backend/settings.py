@@ -73,8 +73,8 @@ ROOT_URLCONF = 'backend.urls'
 CORS_ORIGIN_ALLOW_ALL = True  # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = ['localhost:3000']
-CSRF_USE_SESSIONS = True
-CSRF_HEADER_NAME = 'HTTP_CSRF_TOKEN'
+# CSRF_USE_SESSIONS = True
+# CSRF_HEADER_NAME = 'HTTP_CSRF_TOKEN'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

@@ -3,6 +3,7 @@ import axios from 'axios';
 import {API_BASE_URL} from '../../constants/apiConstants';
 import {withRouter} from "react-router-dom";
 
+
 function RegistrationForm(props) {
     const [state, setState] = useState({
         username: "",
@@ -26,13 +27,14 @@ function RegistrationForm(props) {
                 "email": state.email,
                 "password": state.password,
             }
-            axios.post(API_BASE_URL + 'users/', payload)
+            axios.post(API_BASE_URL + 'api/users/', payload)
                 .then(function (response) {
                     setState(prevState => ({
                         ...prevState,
                         'successMessage': 'Registration successful. Redirecting to home page..'
                     }))
                     redirectToHome();
+                    props.setLoggedIn(true);
                     props.showError(null)
                 })
                 .catch(function (error) {

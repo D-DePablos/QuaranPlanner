@@ -2,8 +2,25 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import {API_BASE_URL} from '../../constants/apiConstants';
 import {withRouter} from "react-router-dom";
+axios.defaults.withCredentials = true
+// axios.defaults.xsrfHeaderName = "X-CSRFToken";
+// axios.defaults.withCredentials = true;
 
 function LoginForm(props) {
+    let _csrfToken = null;
+
+    async function getCsrfToken() {
+        if (_csrfToken === null) {
+            const response = await fetch(API_BASE_URL + 'csrf/', {
+                credentials: 'include',
+            });
+            const data = await response.json();
+            _csrfToken = data.csrfToken;
+            console.log(_csrfToken);
+        }
+        return _csrfToken;
+    }
+
     const [state, setState] = useState({
         username: "",
         password: "",
@@ -16,30 +33,34 @@ function LoginForm(props) {
             [id]: value
         }))
     }
-    const handleSubmitClick = (e) => {
+
+    const handleSubmitClick = async (e) => {
         e.preventDefault();
         const payload = {
             "username": state.username,
             "password": state.password,
         }
-        axios.get(API_BASE_URL + 'users/', payload)
+        axios.post(API_BASE_URL + 'api-auth/login/', payload, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRFTOKEN': await getCsrfToken(),
+            },
+            credentials: 'include',
+        })
             .then(function (response) {
-                if (response.data.code === 302) {
-                    setState(prevState => ({
-                        ...prevState,
-                        'successMessage': 'Registration successful. Redirecting to home page..'
-                    }))
-                    redirectToHome();
-                    props.showError(null)
-                } else if (response.data.code === 200) {
-                    props.showError("Username and password do not match");
-                } else {
-                    props.showError("Username does not exists");
-                }
+                console.log(response.data);
+                setState(prevState => ({
+                    ...prevState,
+                    'successMessage': 'Registration successful. Redirecting to home page..'
+                }))
+                redirectToHome();
+                props.showError(null)
             })
             .catch(function (error) {
                 console.log(error);
             });
+
     }
     const redirectToHome = () => {
         props.history.push('/home');
