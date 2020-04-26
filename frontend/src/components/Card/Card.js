@@ -20,6 +20,26 @@ class Card extends Component {
         return this._csrfToken;
     }
 
+    dislikeEvent = async (id) => {
+        const payload = {
+            "id": id,
+        }
+        axios.post(API_BASE_URL + 'dislikes/', payload, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRFTOKEN': await this.getCsrfToken(),
+            },
+            credentials: 'include',
+        })
+            .then(function (response) {
+                console.log(id + " -1");
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     likeEvent = async (id) => {
         const payload = {
             "id": id,
@@ -33,7 +53,7 @@ class Card extends Component {
             credentials: 'include',
         })
             .then(function (response) {
-                console.log(id);
+                console.log(id + " +1");
             })
             .catch(function (error) {
                 console.log(error);
@@ -51,7 +71,7 @@ class Card extends Component {
                     </div>
                     <div className="dislikeContainer">
                         <img
-                            src={dislike}
+                            src={dislike} onClick={() => this.dislikeEvent(this.props.id)}
                             className="eventStatus dislike" title="Can live without it"/>
                         <span>{this.props.dislikes}</span>
                     </div>
