@@ -50,9 +50,11 @@ def index(request):
     return HttpResponse("Hello, world. You are at index through a GET request. "
                         "Please use localhost:PORT/api/ to your content")
 
-@require_http_methods(["GET"])
+@require_http_methods(["GET", "POST"])
 def upvote(request, id=None):
     # Change the upvote value of the item
+
+    print(request.body.find(id))
     if not id:
         raise Exception("Need id header in body of GET request")
     event = Event.objects.get(id=id)
