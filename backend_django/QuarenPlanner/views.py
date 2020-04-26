@@ -40,6 +40,7 @@ class EventViewSet(viewsets.ModelViewSet):
 def csrf(request):
     return JsonResponse({'csrfToken': get_token(request)})
 
+
 def ping(request):
     return JsonResponse({'result': 'OK'})
 
@@ -60,6 +61,8 @@ def authenticator(request, username, password):
     user = authenticate(username=username, password=password)
 
     if user is not None:
-        return HttpResponse(200, "Successful authentication")
+        return HttpResponse("Successful authentication")
     else:
-        return HttpResponse(400, "Forbidden. Bad username / password")
+        return HttpResponse("Forbidden. Bad username / password")
+
+
