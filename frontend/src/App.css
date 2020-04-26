@@ -148,6 +148,7 @@ p.event-category {
     font-weight: 500;
     padding-left: .5em;
     font-family: 'Montserrat', sans-serif;
+    text-align: right;
 }
 
 .event-category {
@@ -249,4 +250,26 @@ img.event-categoryPicture {
 
 img.userPage {
     width: 40%;
+}
+
+p.event-category.culture, p.event-category.quizNight {
+    color: #5d77df;
+}
+
+p.event-category.music, p.event-category.beauty {
+    color: #fcd4ce;
+}
+
+p.event-category.craft {
+    color: #d34845;
+}
+
+svg.svg-inline--fa.fa-external-link-square-alt.fa-w-14 {
+    font-size: 30px;
+    color: #5d77df;
+}
+
+svg.svg-inline--fa.fa-youtube-square.fa-w-14 {
+    font-size: 30px;
+    color: #5d77df;
 }
