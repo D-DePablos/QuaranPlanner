@@ -14,7 +14,7 @@ class Event(models.Model):
     dislikes = models.IntegerField(default=0)
     url = models.TextField()
     platform = models.TextField()  # Instagram, Youtube, ...
-    category = models.TextField(default='No selected Category')
+    category = models.TextField(default='Default')
     host = models.TextField()  # Company or individual (if required)
 
     event_start = models.DateTimeField(blank=True, null=True, default=None)
