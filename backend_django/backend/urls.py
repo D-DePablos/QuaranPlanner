@@ -17,6 +17,9 @@ from django.contrib import admin, auth
 from django.urls import include, path
 from rest_framework import routers
 from QuarenPlanner import views
+from store import views as store_views
+from store import api_views as store_apiviews
+
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -26,8 +29,8 @@ router.register(r'events', views.EventViewSet)
 urlpatterns = [
     path('', views.index, name='index'),
     path('api/', include(router.urls)),
-    path('csrf/', views.csrf),
-    path('ping/', views.ping),
     path('admin/', admin.site.urls),
+    path('likes/', views.upvote),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('cart/', store_views.cart, name ='shopping-cart')
 ]

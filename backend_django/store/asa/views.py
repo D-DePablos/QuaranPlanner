@@ -50,22 +50,11 @@ def index(request):
     return HttpResponse("Hello, world. You are at index through a GET request. "
                         "Please use localhost:PORT/api/ to your content")
 
-@require_http_methods(["GET"])
-def upvote(request, id=None):
-    # Change the upvote value of the item
-    if not id:
-        raise Exception("Need id header in body of GET request")
-    event = Event.objects.get(id=id)
-    print(event)
-    context = {
-        'event': event,
-        'like_amount': Event.likes
-    }
-
-    event.likes = event.likes +1
-    event.save()
-
-    return HttpResponse("Added your upvote!")
+# @require_http_methods(["POST"])
+# def upvote(request, id):
+#     # Change the upvote value of the item
+#     pass
+#
 # # @require_http_methods(["POST", "GET"])
 # # def authenticator(request, username, password):
 # #
