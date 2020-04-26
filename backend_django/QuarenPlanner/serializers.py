@@ -23,7 +23,7 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Event
         fields = ['id', 'name', 'description', 'likes', 'dislikes', 'url',
-                  'platform', 'host', 'event_start', 'event_end', 'photo', 'pub_date']
+                  'platform', 'category', 'host', 'event_start', 'event_end', 'photo', 'pub_date']
 
     def to_representation(self, instance):
         # Serialize the fields and add extra customized fields to representation
