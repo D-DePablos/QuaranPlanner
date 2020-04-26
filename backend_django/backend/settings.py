@@ -74,7 +74,7 @@ CORS_ORIGIN_ALLOW_ALL = True  # If this is used then `CORS_ORIGIN_WHITELIST` wil
 CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = ['localhost:3000']
 CSRF_USE_SESSIONS = True
-CSRF_HEADER_NAME = 'csrf_token'
+CSRF_HEADER_NAME = 'HTTP_CSRF_TOKEN'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
