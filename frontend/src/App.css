@@ -107,7 +107,7 @@ button.registerButton {
 }
 
 p.registerText {
-    color: #5d77df;
+    color: #fbc5b6;
     font-weight: 600;
 }
 
@@ -245,4 +245,8 @@ img.event-categoryPicture {
 
 .eventPositionContainer span {
     margin-left: .5em;
+}
+
+img.userPage {
+    width: 40%;
 }

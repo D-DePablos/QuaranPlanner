@@ -1,29 +1,23 @@
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import Header from "./components/Header/Header";
 import RegistrationForm from './components/RegistrationForm/RegistrationForm';
 import Home from "./components/Home/Home";
 import LoginForm from "./components/LoginForm/LoginForm";
-import AlertComponent from "./components/AlertComponent/AlertComponent";
-import Footer from "./components/Footer/Footer";
 
 import {
     BrowserRouter as Router,
     Switch,
     Route
 } from "react-router-dom";
-import Events from "./components/Events/Events";
+import CreateEvent from "./components/CreateEvent/CreateEvent";
 
 class App extends Component {
-    //isNavbarHidden, updateNavbarHidden = useState(null);
-//title = useState(null);
-//[loggedIn, setLoggedIn] = useState(false);
-//[errorMessage, updateErrorMessage] = useState(null);
 
     constructor(props) {
         super(props);
         this.state = {
             isShow: true,
+            setEvent: 'culture',
         };
     }
 
@@ -34,9 +28,6 @@ class App extends Component {
                 <div className="App">
                     <div className="d-flex">
                         <Switch>
-                            <Route path="/" exact={true}>
-                                <Home isShow={true}/>
-                            </Route>
                             <Route path="/register" exact={true}>
                                 <RegistrationForm/>
                             </Route>
@@ -44,13 +35,31 @@ class App extends Component {
                                 <LoginForm/>
                             </Route>
                             <Route path="/home" exact={true}>
-                                <Home/>
-                            </Route>
-                            <Route path="/home" exact={true}>
-                                <Home isShow={true}/>
+                                <Home isShow={true} setEvent={'all'}/>
                             </Route>
                             <Route path="/events" exact={true}>
-                                <Home isShow={false}/>
+                                <Home isShow={false} setEvent={'all'}/>
+                            </Route>
+                            <Route path="/culture" exact={true}>
+                                <Home isShow={false} setEvent={'CU'}/>
+                            </Route>
+                            <Route path="/beauty" exact={true}>
+                                <Home isShow={false} setEvent={'BY'}/>
+                            </Route>
+                            <Route path="/technology" exact={true}>
+                                <Home isShow={false} setEvent={'TC'}/>
+                            </Route>
+                            <Route path="/crafts" exact={true}>
+                                <Home isShow={false} setEvent={'CR'}/>
+                            </Route>
+                            <Route path="/music" exact={true}>
+                                <Home isShow={false} setEvent={'MU'}/>
+                            </Route>
+                            <Route path="/quiz-night" exact={true}>
+                                <Home isShow={false} setEvent={'QU'}/>
+                            </Route>
+                            <Route path="/create-event" exact={true}>
+                                <CreateEvent/>
                             </Route>
                         </Switch>
                     </div>

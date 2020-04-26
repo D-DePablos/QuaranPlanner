@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import {API_BASE_URL} from '../../constants/apiConstants';
 import {withRouter} from "react-router-dom";
+import header from "../Icons/logotype.png";
 
 
 function RegistrationForm(props) {
@@ -41,6 +42,9 @@ function RegistrationForm(props) {
 
     }
     const redirectToHome = () => {
+        props.history.push('/events');
+    }
+    const redirectToHomeNoLogin = () => {
         props.history.push('/home');
     }
     const redirectToLogin = () => {
@@ -54,7 +58,8 @@ function RegistrationForm(props) {
     }
     return (
         <div className="card col-12 col-lg-4 login-card mt-2 hv-center userForm">
-            <span className="h3">Quarenplanner</span>
+            <span className="h3 userPage" onClick={() => redirectToHomeNoLogin()}><img src={header}
+                                                                                        className="userPage"/></span>
             <form>
                 <div className="form-group text-left">
                     <input type="text"

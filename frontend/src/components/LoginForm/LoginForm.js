@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import {API_BASE_URL} from '../../constants/apiConstants';
 import {withRouter} from "react-router-dom";
+import header from "../Icons/logotype.png";
 axios.defaults.withCredentials = true
 // axios.defaults.xsrfHeaderName = "X-CSRFToken";
 // axios.defaults.withCredentials = true;
@@ -49,7 +50,6 @@ function LoginForm(props) {
             credentials: 'include',
         })
             .then(function (response) {
-                console.log(response.data);
                 setState(prevState => ({
                     ...prevState,
                     'successMessage': 'Registration successful. Redirecting to home page..'
@@ -67,9 +67,13 @@ function LoginForm(props) {
     const redirectToRegister = () => {
         props.history.push('/register');
     }
+    const redirectToHomeNoLogin = () => {
+        props.history.push('/home');
+    }
     return (
         <div className="card col-12 col-lg-4 login-card mt-2 hv-center userForm">
-            <span className="h3">Quarenplanner</span>
+            <span className="h3 userPage" onClick={() => redirectToHomeNoLogin()}><img src={header}
+                                                                                        className="userPage"/></span>
             <form>
                 <div className="form-group text-left">
                     <input type="text"

@@ -11,7 +11,10 @@ class Header extends Component {
         this.props.history.push('/login');
     }
     redirectToHomePage = () => {
-        this.props.history.push('/');
+        this.props.history.push('/home');
+    }
+    redirectToCreateEvent = () => {
+        this.props.history.push('/create-event');
     }
     capitalize = (s) => {
         if (typeof s !== 'string') return ''
@@ -23,7 +26,6 @@ class Header extends Component {
     render() {
         return (
             <nav className="navbar navbar-dark bg-primary">
-                {console.log(this.props.isShow)}
                 <div className="row col-12">
                     <span className="h3" onClick={() => this.redirectToHomePage()}><img src={header}
                                                                                         className="headerImage"/><span
@@ -33,7 +35,7 @@ class Header extends Component {
                                                      onClick={() => this.redirectToLogin()}>Login</button>
                             <button className="profileButton registerButton"
                                     onClick={() => this.redirectToRegister()}>Register
-                            </button></div> : <div className="button-profile-group"><button className="profileButton createEvent"
+                            </button></div> : <div className="button-profile-group"><button className="profileButton createEvent" onClick={() => this.redirectToCreateEvent()}
                                                      >Create event</button></div>}
 
                 </div>
