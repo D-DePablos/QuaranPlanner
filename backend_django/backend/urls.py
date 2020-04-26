@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin, auth
 from django.urls import include, path
 from rest_framework import routers
-from QuarenPlanner import views
+from QuarenPlanner import views, api_views
 from store import views as store_views
 from store import api_views as store_apiviews
 
@@ -34,5 +34,6 @@ urlpatterns = [
     path('likes/', views.upvote),
     path('dislikes/', views.downvote),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('cart/', store_views.cart, name ='shopping-cart')
+    path('cart/', store_views.cart, name ='shopping-cart'),
+    path('is_on/', api_views.EventList),
 ]
