@@ -23,15 +23,19 @@ class Header extends Component {
     render() {
         return (
             <nav className="navbar navbar-dark bg-primary">
+                {console.log(this.props.isShow)}
                 <div className="row col-12">
                     <span className="h3" onClick={() => this.redirectToHomePage()}><img src={header}
-                                                                                   className="headerImage"/><span
+                                                                                        className="headerImage"/><span
                         className="currentPage"> | {this.props.title || this.title}</span></span>
-                    <div className="button-profile-group">
-                        <button className="profileButton loginButton" onClick={() => this.redirectToLogin()}>Login</button>
-                        <button className="profileButton registerButton" onClick={() => this.redirectToRegister()}>Register
-                        </button>
-                    </div>
+
+                        {this.props.isShow ? <div className="button-profile-group"><button className="profileButton loginButton"
+                                                     onClick={() => this.redirectToLogin()}>Login</button>
+                            <button className="profileButton registerButton"
+                                    onClick={() => this.redirectToRegister()}>Register
+                            </button></div> : <div className="button-profile-group"><button className="profileButton createEvent"
+                                                     >Create event</button></div>}
+
                 </div>
             </nav>
         )

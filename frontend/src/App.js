@@ -12,27 +12,33 @@ import {
     Switch,
     Route
 } from "react-router-dom";
+import Events from "./components/Events/Events";
 
 class App extends Component {
     //isNavbarHidden, updateNavbarHidden = useState(null);
 //title = useState(null);
 //[loggedIn, setLoggedIn] = useState(false);
 //[errorMessage, updateErrorMessage] = useState(null);
-    render() {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            isShow: true,
+        };
+    }
+
+    render() {
         return (
 
             <Router>
                 <div className="App">
-
-                        <Header  />
                     <div className="d-flex">
                         <Switch>
                             <Route path="/" exact={true}>
-                                <Home/>
+                                <Home isShow={true}/>
                             </Route>
                             <Route path="/register" exact={true}>
-                                <RegistrationForm />
+                                <RegistrationForm/>
                             </Route>
                             <Route path="/login" exact={true}>
                                 <LoginForm/>
@@ -41,16 +47,19 @@ class App extends Component {
                                 <Home/>
                             </Route>
                             <Route path="/home" exact={true}>
-                                <Home/>
+                                <Home isShow={true}/>
+                            </Route>
+                            <Route path="/events" exact={true}>
+                                <Home isShow={false}/>
                             </Route>
                         </Switch>
                     </div>
-                    <Footer/>
                 </div>
             </Router>
         );
     }
 
 }
+
 
 export default App;

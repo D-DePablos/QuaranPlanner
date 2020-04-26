@@ -7,7 +7,7 @@ class Events extends Component {
 
     constructor() {
         super();
-        this.state = {events: ["test", "test2"]};
+        this.state = {events: []};
     }
 
     componentDidMount() {

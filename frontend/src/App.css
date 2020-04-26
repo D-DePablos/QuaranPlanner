@@ -37,6 +37,16 @@ button.loginButton {
     padding: .5em 2em;
 }
 
+button.createEvent {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid #5d77df;
+    background: #fff;
+    color: #5d77df;
+    padding: .5em 2em;
+}
+
 button.registerButton {
     font-size: 13px;
     font-weight: 600;

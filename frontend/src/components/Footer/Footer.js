@@ -1,13 +1,16 @@
-import React from "react";
+import React, {Component} from "react";
 import tech from "../Icons/tech.jpg";
 import book from "../Icons/books.jpg"
 import music from "../Icons/music.jpg";
 import beauty from "../Icons/beauty.jpg";
 import craft from "../Icons/crafts.jpg";
 import quizNight from "../Icons/quiz night.jpg";
+import {withRouter} from "react-router-dom";
 
-function Footer() {
-    return (
+class Footer extends Component{
+
+    render() {
+        return (
         <div className="row col-12 footerMenu">
             <button className="categoryButton bookButton">
                 <div className="imageContainer">
@@ -47,6 +50,7 @@ function Footer() {
             </button>
         </div>
     );
+    }
 }
 
 export default Footer;

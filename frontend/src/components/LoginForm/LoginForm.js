@@ -55,7 +55,6 @@ function LoginForm(props) {
                     'successMessage': 'Registration successful. Redirecting to home page..'
                 }))
                 redirectToHome();
-                props.showError(null)
             })
             .catch(function (error) {
                 console.log(error);
@@ -63,7 +62,7 @@ function LoginForm(props) {
 
     }
     const redirectToHome = () => {
-        props.history.push('/home');
+        props.history.push('/events');
     }
     const redirectToRegister = () => {
         props.history.push('/register');

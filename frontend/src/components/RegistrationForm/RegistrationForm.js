@@ -21,7 +21,6 @@ function RegistrationForm(props) {
     }
     const sendDetailsToServer = () => {
         if (state.email.length && state.password.length) {
-            props.showError(null);
             const payload = {
                 "username": state.username,
                 "email": state.email,
@@ -34,14 +33,10 @@ function RegistrationForm(props) {
                         'successMessage': 'Registration successful. Redirecting to home page..'
                     }))
                     redirectToHome();
-                    props.setLoggedIn(true);
-                    props.showError(null)
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
-        } else {
-            props.showError('Please enter valid username and password')
         }
 
     }
@@ -55,8 +50,6 @@ function RegistrationForm(props) {
         e.preventDefault();
         if (state.password === state.confirmPassword) {
             sendDetailsToServer()
-        } else {
-            props.showError('Passwords do not match');
         }
     }
     return (
