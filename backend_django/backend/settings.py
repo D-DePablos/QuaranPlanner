@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'QuarenPlanner',
     'corsheaders',
-    'store'
 ]
 
 MIDDLEWARE = [

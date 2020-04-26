@@ -1,5 +1,4 @@
 # Create your views here.
-from django.contrib.auth import authenticate
 from rest_framework import permissions, generics, viewsets
 from .serializers import UserSerializer, EventSerializer
 from .models import Event
@@ -8,8 +7,7 @@ from rest_framework.filters import SearchFilter
 from django.http import HttpResponse, JsonResponse
 from django.middleware.csrf import get_token
 from django.views.decorators.http import require_http_methods
-from django.shortcuts import get_object_or_404, render
-
+from rest_framework.pagination import PageNumberPagination
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -33,7 +31,8 @@ class EventViewSet(viewsets.ModelViewSet):
 
     # Searching functionality
     filter_backends = (SearchFilter,)
-    search_fields =('category',)
+    search_fields =('category','is_on', 'is_hot')
+    pagination_class = PageNumberPagination
 
     def get_queryset(self):
         """
@@ -43,6 +42,7 @@ class EventViewSet(viewsets.ModelViewSet):
 
         if on_sale is None:
             return super().get_queryset()
+
         queryset = Event.objects.all()
         if on_sale.lower() == 'true':
             from django.utils import timezone
@@ -56,10 +56,6 @@ class EventViewSet(viewsets.ModelViewSet):
 
 def csrf(request):
     return JsonResponse({'csrfToken': get_token(request)})
-
-
-def ping(request):
-    return JsonResponse({'result': 'OK'})
 
 
 @require_http_methods(["GET"])
