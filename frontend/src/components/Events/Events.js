@@ -21,7 +21,7 @@ class Events extends Component {
         return (
             <div>
                 {this.state.events.map(event => (
-                    <Card title={event.name} likes={event.likes} dislikes={event.dislikes} description={event.description} platform={event.platform} startDate={event.event_start} endDate={event.event_end} category={event.category}/>
+                    <Card id={event.id} title={event.name} likes={event.likes} dislikes={event.dislikes} description={event.description} platform={event.platform} startDate={event.event_start} endDate={event.event_end} category={event.category}/>
                 ))}
             </div>
         )
