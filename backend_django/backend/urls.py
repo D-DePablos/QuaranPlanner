@@ -29,6 +29,7 @@ router.register(r'events', views.EventViewSet)
 urlpatterns = [
     path('', views.index, name='index'),
     path('api/', include(router.urls)),
+    path('csrf/', views.csrf),
     path('admin/', admin.site.urls),
     path('likes/', views.upvote),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
