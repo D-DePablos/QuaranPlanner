@@ -63,12 +63,15 @@ function LoginForm(props) {
     }
     const redirectToHome = () => {
         props.history.push('/events');
+        window.location.reload(true);
     }
     const redirectToRegister = () => {
         props.history.push('/register');
+        window.location.reload(true);
     }
     const redirectToHomeNoLogin = () => {
         props.history.push('/home');
+        window.location.reload(true);
     }
     return (
         <div className="card col-12 col-lg-4 login-card mt-2 hv-center userForm">

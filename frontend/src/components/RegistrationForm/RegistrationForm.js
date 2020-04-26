@@ -43,12 +43,15 @@ function RegistrationForm(props) {
     }
     const redirectToHome = () => {
         props.history.push('/events');
+        window.location.reload(true);
     }
     const redirectToHomeNoLogin = () => {
         props.history.push('/home');
+        window.location.reload(true);
     }
     const redirectToLogin = () => {
         props.history.push('/login');
+        window.location.reload(true);
     }
     const handleSubmitClick = (e) => {
         e.preventDefault();

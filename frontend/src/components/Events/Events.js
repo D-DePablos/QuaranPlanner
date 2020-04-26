@@ -27,12 +27,8 @@ class Events extends Component {
 
     render() {
         return (
-            <div className="cards">
-                {this.state.events.map(event => (
-                    <Card id={event.id} title={event.name} likes={event.likes} dislikes={event.dislikes}
-                          description={event.description} platform={event.platform} startDate={event.event_start}
-                          endDate={event.event_end} category={event.category} url={event.url}/>
-                ))}
+            <div>
+                <AreEvents events={this.state.events} category={this.props.setEvent}/>
             </div>
         )
     }
@@ -43,15 +39,18 @@ class Events extends Component {
 function AreEvents(props) {
     if (props.events.length > 0) {
         return (
-            <div className="cards">{props.events.map(event => (
-                    <MiniCards title={event.name} platform={event.platform} startDate={event.event_start}
+            <div className="cards">
+                {props.events.map(event => (
+                    <Card id={event.id} title={event.name} likes={event.likes} dislikes={event.dislikes}
+                          description={event.description} platform={event.platform} startDate={event.event_start}
                           endDate={event.event_end} category={event.category} url={event.url}/>
-            ))}</div>
+                ))}
+            </div>
         )
     }
     else {
         return (
-            <div className="card-event isOn noEvents">No ongoing events in {props.category}</div>
+            <div className="row col-9 card-event noEventsScheduled">No scheduled events in {props.category}</div>
         )
     }
 }

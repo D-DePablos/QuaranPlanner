@@ -12,6 +12,7 @@ class Footer extends Component{
     redirectToEvent = (event) =>{
         console.log(event);
         this.props.history.push('/' +event);
+         window.location.reload(true);
     }
     render() {
         return (

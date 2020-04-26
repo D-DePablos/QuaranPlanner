@@ -5,16 +5,20 @@ import header from "../Icons/logotype.png";
 class Header extends Component {
     redirectToRegister = () => {
         this.props.history.push('/register');
+         window.location.reload(true);
     }
     redirectToLogin = () => {
         //props.updateNavbarHidden(false);
         this.props.history.push('/login');
+        window.location.reload(true);
     }
     redirectToHomePage = () => {
         this.props.history.push('/home');
+        window.location.reload(true);
     }
     redirectToCreateEvent = () => {
         this.props.history.push('/create-event');
+        window.location.reload(true);
     }
     capitalize = (s) => {
         if (typeof s !== 'string') return ''

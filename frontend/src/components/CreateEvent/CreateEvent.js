@@ -50,6 +50,7 @@ function CreateEvent(props) {
     }
     const redirectToHome = () => {
         props.history.push('/events');
+        window.location.reload(true);
     }
 
     const handleSubmitClick = (e) => {

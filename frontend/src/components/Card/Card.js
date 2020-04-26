@@ -42,6 +42,7 @@ class Card extends Component {
         })
             .then(function (response) {
                 console.log(id + " -1");
+                window.location.reload(true);
             })
             .catch(function (error) {
                 console.log(error);
@@ -62,6 +63,7 @@ class Card extends Component {
         })
             .then(function (response) {
                 console.log(id + " +1");
+                window.location.reload(true);
             })
             .catch(function (error) {
                 console.log(error);
