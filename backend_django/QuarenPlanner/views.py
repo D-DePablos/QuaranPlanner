@@ -34,7 +34,7 @@ class EventViewSet(viewsets.ModelViewSet):
 
     # Searching functionality
     filter_backends = (SearchFilter,)
-    search_fields =('name', 'description', 'platform')
+    search_fields =('category', )
 
 
 def csrf(request):
@@ -50,7 +50,7 @@ def index(request):
     return HttpResponse("Hello, world. You are at index through a GET request. "
                         "Please use localhost:PORT/api/ to your content")
 
-@require_http_methods(["POST"])
+@require_http_methods(["GET","POST"])
 def upvote(request, id=None):
     # Change the upvote value of the item
 
@@ -64,19 +64,14 @@ def upvote(request, id=None):
 
     print(f'Using index {found_id}')
 
-    if found_id:
+    if found_id or found_id == 0:
         id = found_id
     else:
         return HttpResponse(f"Not found event ID on body: {str(request.body)}")
         raise Exception("Event not found in body")
 
-    print(id)
-    if not id:
-        return HttpResponse(f"Event id does not exist")
 
-        raise Exception("Need id header in body of GET request")
-
-    else:
+    if id or id == 0:
         event = Event.objects.get(id=id)
         context = {
             'event': event,
@@ -86,6 +81,10 @@ def upvote(request, id=None):
         event.save()
 
         return HttpResponse("Added your upvote", context)
+
+    else:
+        return HttpResponse(f"Event id does not exist")
+        raise Exception("Need id header in body of GET request")
 
 
 #@require_http_methods(["POST"])
@@ -102,18 +101,14 @@ def downvote(request, id=None):
 
     print(f'Using index {found_id}')
 
-    if found_id:
+    if found_id or found_id == 0:
         id = found_id
     else:
         return HttpResponse(f"Not found event ID on body: {str(request.body)}")
         raise Exception("Event not found in body")
 
-    print(id)
-    if not id:
-        return HttpResponse(f"Event id does not exist")
-        raise Exception("Need id header in body of GET request")
+    if id or id == 0:
 
-    else:
         event = Event.objects.get(id=id)
         context = {
             'event': event,
@@ -123,3 +118,8 @@ def downvote(request, id=None):
         event.save()
 
         return HttpResponse("Added your downvote", context)
+
+    else:
+        return HttpResponse(f"Event id does not exist")
+        raise Exception("Need id header in body of GET request")
+
