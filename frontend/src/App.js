@@ -44,7 +44,6 @@ class App extends Component {
                                 <Home/>
                             </Route>
                         </Switch>
-                        <AlertComponent/>
                     </div>
                     <Footer/>
                 </div>
