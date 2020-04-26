@@ -40,3 +40,4 @@ class Event(models.Model):
     def __repr__(self):
         return f'<Event object ({self.id}) "{self.name}">'
 
+

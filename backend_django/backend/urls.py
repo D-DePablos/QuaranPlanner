@@ -25,7 +25,6 @@ router.register(r'events', views.EventViewSet)
 # Use automatic URL routing
 urlpatterns = [
     path('', views.index, name='index'),
-    path('login/', views.authenticator, name='login'),
     path('api/', include(router.urls)),
     path('csrf/', views.csrf),
     path('ping/', views.ping),

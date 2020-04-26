@@ -50,19 +50,19 @@ def index(request):
     return HttpResponse("Hello, world. You are at index through a GET request. "
                         "Please use localhost:PORT/api/ to your content")
 
-@require_http_methods(["POST"])
-def upvote(request, id):
-    # Change the upvote value of the item
-    pass
-
-@require_http_methods(["POST", "GET"])
-def authenticator(request, username, password):
-
-    user = authenticate(username=username, password=password)
-
-    if user is not None:
-        return HttpResponse("Successful authentication")
-    else:
-        return HttpResponse("Forbidden. Bad username / password")
-
+# @require_http_methods(["POST"])
+# def upvote(request, id):
+#     # Change the upvote value of the item
+#     pass
+#
+# # @require_http_methods(["POST", "GET"])
+# # def authenticator(request, username, password):
+# #
+# #     user = authenticate(username=username, password=password)
+# #
+# #     if user is not None:
+# #         return HttpResponse("Successful authentication")
+# #     else:
+# #         return HttpResponse("Forbidden. Bad username / password")
+# #
 
